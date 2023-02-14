@@ -1,12 +1,30 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const caseStudiesSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    images: { type: Array, required: true },
-    shortdescription: { type: String, required: true },
-    description: { type: String, required: true },
-}, { timestamps: true })
+const caseStudiesSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    shortdescription: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    texteditor: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
-mongoose.models = {}
+mongoose.models = {};
 
-export default mongoose.model('Casestudies', caseStudiesSchema)
+export default mongoose.model("Casestudies", caseStudiesSchema);

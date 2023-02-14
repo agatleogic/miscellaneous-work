@@ -14,16 +14,17 @@ const Menuitems = [
     icon: "eye",
     href: "/allservices",
   },
-  // {
-  //   title: "Add portfolio",
-  //   icon: "plus-circle",
-  //   href: "/addportfolio",
-  // },
+  
   {
     title: "Portfolio",
     icon: "eye",
     href: "/allportfolios",
   },
+  {
+      title: "Contacts Request",
+      icon: "user",
+      href: "/allcontacts",
+    },
   // {
   //   title: "Alerts",
   //   icon: "info",

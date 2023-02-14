@@ -1,24 +1,26 @@
 import mongoose from "mongoose";
 
-const ServicesSchema = new mongoose.Schema(
+const contactreq = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
     },
-    image: {
+    email: {
       type: String,
       required: true,
     },
-    shortdescription: {
-      type: String,
+    number: {
+      type: Number,
       required: true,
     },
-    description: {
+    subject: {
       type: String,
-      required: true,
     },
-    texteditor: {
+    message: {
+      type: String,
+    },
+    ip: {
       type: String,
     },
   },
@@ -27,4 +29,4 @@ const ServicesSchema = new mongoose.Schema(
 
 mongoose.models = {};
 
-export default mongoose.model("Services", ServicesSchema);
+export default mongoose.model("Contactrequests", contactreq);

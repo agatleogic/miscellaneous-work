@@ -27,23 +27,24 @@ const ProfileDD = () => {
   const handleClose4 = () => {
     setAnchorEl4(null);
   };
-  const[name, setName] = useState("")
+  const [name, setName] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("admin")
+    const token = localStorage.getItem("admin");
     if (!token) {
-      router.push("/adminlogin")
+      router.push("/adminlogin");
     }
-    setName(JSON.parse(token))
-  }, [name])
+    setName(JSON.parse(token));
+  }, [name]);
 
   const handleLogout = () => {
     localStorage.clear();
-    router.push("/adminlogin")
-  }
+    // router.push("/adminlogin")
+    window.location = "/adminlogin";
+  };
   return (
     <>
-          <Button
+      <Button
         aria-label="menu"
         color="inherit"
         aria-controls="profile-menu"
@@ -82,7 +83,7 @@ const ProfileDD = () => {
                 ml: 1,
               }}
             >
-            {name? <>{name}</>: " user not available"}
+              {name ? <>{name}</> : " user not available"}
             </Typography>
             <FeatherIcon icon="chevron-down" width="20" height="20" />
           </Box>
@@ -123,13 +124,18 @@ const ProfileDD = () => {
           </Box>
           <Divider />
           <Box p={2}>
-            <Button fullWidth variant="contained" color="primary" onClick={handleLogout}>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={handleLogout}
+            >
               Logout
             </Button>
           </Box>
         </Box>
       </Menu>
-        </>
+    </>
   );
 };
 

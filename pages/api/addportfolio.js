@@ -1,20 +1,25 @@
-import connectDB from "../../server/conection/connectDB"
-import caseStudiesSchema from "../../server/models/caseStudiesSchema"
+import connectDB from "../../server/conection/connectDB";
+import caseStudiesSchema from "../../server/models/caseStudiesSchema";
 
 async function handler(req, res) {
-    const { title, image, description } = req.body
-    if (req.method == 'POST') {
+  if (req.method == "POST") {
+    // console.log(req.body);
+    const { title, shortdescription, image, description, texteditor } =
+      req.body;
+    const portfolio = new caseStudiesSchema({
+      title,
+      image,
+      shortdescription,
+      description,
+      texteditor,
+    });
 
-        let portfolio = new caseStudiesSchema({
-            title,
-            image,
-            description,
-        })
-        let result = await portfolio.save()
-        res.status(200).json({ result })
-    } else {
-        res.status(400).json({ err: "this is error" })
-    }
+    const result = await portfolio.save();
+
+    res.status(201).json({ result });
+  } else {
+    res.status(404).json({ message: "bad request" });
+  }
 }
 
-export default connectDB(handler)
+export default connectDB(handler);

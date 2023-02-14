@@ -35,29 +35,34 @@ const FullLayout = ({ children }) => {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = React.useState(false);
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
-  // const [token1, setToken1] = useState("")
+  const [token1, setToken1] = useState("")
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     setToken1(localStorage.getItem("admin"))
-  //     setToken1(true)
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setToken1(localStorage.getItem("admin"))
+    }
+  }, [])
 
   return (
     <MainWrapper className="fulllayout">
-      <Header className="header"
-        sx={{
-          paddingLeft: isSidebarOpen && lgUp ? "265px" : "",
-          backgroundColor: "#fbfbfb",
-        }}
-        toggleMobileSidebar={() => setMobileSidebarOpen(true)}
-      />
-      <Sidebar className="sidebar"
-        isSidebarOpen={isSidebarOpen}
-        isMobileSidebarOpen={isMobileSidebarOpen}
-        onSidebarClose={() => setMobileSidebarOpen(false)}
-      />
+      {token1 && (
+        <>
+          <Header
+            className="header"
+            sx={{
+              paddingLeft: isSidebarOpen && lgUp ? "265px" : "",
+              backgroundColor: "#fbfbfb",
+            }}
+            toggleMobileSidebar={() => setMobileSidebarOpen(true)}
+          />
+          <Sidebar
+            className="sidebar"
+            isSidebarOpen={isSidebarOpen}
+            isMobileSidebarOpen={isMobileSidebarOpen}
+            onSidebarClose={() => setMobileSidebarOpen(false)}
+          />
+        </>
+      )}
 
       <PageWrapper>
         <Container
@@ -69,7 +74,6 @@ const FullLayout = ({ children }) => {
         >
           <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
           <Footer className="footer" />
-
         </Container>
       </PageWrapper>
     </MainWrapper>

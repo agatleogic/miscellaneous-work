@@ -5,6 +5,7 @@ import Portfolios from "../../server/models/casestudiesSchema";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image"
 
 const viewporfolios = ({ portfolios }) => {
 
@@ -20,16 +21,17 @@ const viewporfolios = ({ portfolios }) => {
   const handleDelete = async (id) => {
 
     try {
-      const portfolio = await fetch(`http://localhost:3000/api/deleteportfolio`, {
+      const portfolio = await fetch(`/api/deleteportfolio`, {
         method: "DELETE",
         body: JSON.stringify({ _id: id }),
         headers: {
-          "content-type": "application/json"
+          "Content-Type": "application/json",
+            "Accept": "application/json",
         },
       })
-      console.log(portfolio)
+      // console.log(portfolio)
       if (portfolio.status === 200) {
-        toast.success('services deleted successfully !', {
+        toast.success('Portfolio deleted successfully !', {
           position: toast.POSITION.TOP_CENTER
         });
 
@@ -61,24 +63,19 @@ const viewporfolios = ({ portfolios }) => {
             >
               <TableHead>
                 <TableRow>
-                  <TableCell>
-                    <Typography color="textSecondary" variant="h6">
-                      Id
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     <Typography color="textSecondary" variant="h6">
                       Title
                     </Typography>
                   </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     <Typography color="textSecondary" variant="h6">
                       Image
                     </Typography>
                   </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     <Typography color="textSecondary" variant="h6">
-                      Description
+                      Shortdescription
                     </Typography>
                   </TableCell>
                   <TableCell align="center" colSpan={2}>
@@ -91,17 +88,7 @@ const viewporfolios = ({ portfolios }) => {
               <TableBody>
                 {portfolios.map((product) => (
                   <TableRow key={product._id}>
-                    <TableCell>
-                      <Typography
-                        sx={{
-                          fontSize: "15px",
-                          fontWeight: "500",
-                        }}
-                      >
-                        {product._id}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
+                    <TableCell align="center">
                       <Typography
                         variant="h6"
                         sx={{
@@ -111,30 +98,22 @@ const viewporfolios = ({ portfolios }) => {
                         {product.title}
                       </Typography>
                     </TableCell>
-                    <TableCell>
-                      <Typography variant="h6"
-                        sx={{
-                          fontWeight: "500",
-                        }}>
-                        {product.image}
+                    <TableCell align="center">
+                      <Typography >
+                        <Image src={product.image} width="100" height="70" alt="" />
                       </Typography>
                     </TableCell>
-                    <TableCell align="right" className="flex flex-wrap overflow-scroll overflow-x-hidden">
-                      <Typography variant="h6"
-                        sx={{
-                          width: "150px",
-                          height: "100px",
-                          fontWeight: "500",
-                        }}>{product.description}....</Typography>
+                    <TableCell align="center" className="flex flex-wrap overflow-hidden">
+                      <Typography variant="h6">{product.shortdescription}...</Typography>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       <Link href={`/allportfolios/${product._id}`}>
                         <Button variant="contained" mt={2} className="bg-green-500">
-                          Edite
+                          Edit
                         </Button>
                       </Link>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       <Button variant="contained" color="secondary" mt={2} onClick={() => handleDelete(product._id)}>
                         Delete
                       </Button>
@@ -152,7 +131,7 @@ const viewporfolios = ({ portfolios }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    const MONGODB_URI = process.env.MONGODB_URI
+    const MONGODB_URI = "mongodb://localhost:27017/admin-template";
     await mongoose.connect(MONGODB_URI)
   }
   let portfolios = await Portfolios.find({})
