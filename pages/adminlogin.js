@@ -19,21 +19,21 @@ export default function Index({ res }) {
 
   const handleSubmit = () => {
     if (!email || !password) {
-      toast.warn("please fill data !", {
-        position: toast.POSITION.TOP_RIGHT,
-      });
+      // toast.warn("please fill data !", {
+      //   position: toast.POSITION.TOP_RIGHT,
+      // });
     } else {
       const user = res.result.filter((curUser) => {
         return curUser.email === email && curUser.password === password;
       });
       if (!user[0]) {
-        toast.error("invalid user !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        // toast.error("invalid user !", {
+        //   position: toast.POSITION.TOP_CENTER,
+        // });
       } else {
-        toast.success("succesfully login !", {
-          position: toast.POSITION.TOP_CENTER,
-        });
+        // toast.success("succesfully login !", {
+        //   position: toast.POSITION.TOP_CENTER,
+        // });
         localStorage.setItem("admin", JSON.stringify(email));
         // router.push("/")
         window.location = "/";
