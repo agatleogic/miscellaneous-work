@@ -1,0 +1,182 @@
+.container {
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 8rem 2rem 5rem 2rem;
+    gap: 2rem;
+    transition: 3s;
+}
+
+.aboutyear {
+    position: relative;
+}
+
+.counterbox {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background-color: rgb(30, 63, 63);
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    right: 74%;
+    bottom: 71%;
+}
+
+.counterbox h2 {
+    font-size: 3rem;
+}
+
+.abouts {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    row-gap: 2rem;
+}
+
+.aboutHead span {
+    color: #17cf97;
+}
+
+.aboutHead h2 {
+    font-size: 3.5rem;
+}
+
+.aboutcontent p {
+    color: rgba(242, 243, 245, 0.7);
+}
+
+.aboutItem {
+    border-left: 2px solid #17cf97;
+    background-color: #172525;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.aboutItem h3 {
+    font-size: 1.4rem;
+}
+
+.aboutItem div h4 {
+    font-size: 1rem;
+}
+
+.aboutItem div h4 span {
+    color: rgba(242, 243, 245, 0.5);
+}
+
+.aboutbtn a {
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    padding: 0.8rem;
+    background-color: rgba(10, 28, 100, 0.9);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.aboutbtn a:hover {
+    background-image: linear-gradient(90deg, #7007f0, #05f94a, #fa0e1a, #23164e);
+    background-position: 100% 100%;
+    background-size: 300% 100%;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1100px) {
+
+    .container {
+
+        justify-content: center;
+        align-items: center;
+        margin: 7rem 2rem 5rem 2rem;
+    }
+
+    .aboutyear {
+        width: 80vw;
+    }
+
+    .abouts {
+        width: 80vw;
+    }
+
+    .counterbox {
+        right: 84%;
+        bottom: 75%;
+    }
+
+}
+
+@media (min-width: 468px) and (max-width: 776px) {
+
+    .container {
+
+        justify-content: center;
+        align-items: center;
+        margin:6rem 2rem 5rem 2rem;
+    }
+
+    .aboutyear {
+        width: 80vw;
+    }
+
+    .abouts {
+        width: 90vw;
+    }
+
+}
+@media only screen and (max-width: 468px) {
+
+    .container {
+
+        justify-content: center;
+        align-items: center;
+        margin: 8rem .5rem 5rem .5rem;
+    }
+
+    .aboutyear {
+        width: 90vw;
+        margin: auto;
+    }
+
+    .abouts {
+        width: 90vw;
+    }
+    .aboutImg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutImg img{
+        height: 60vw;
+        width: 90vw;
+    }
+    
+    .counterbox {
+        position: absolute;
+        text-align: center;
+        width: 29vw;
+        height: 25vw;
+        background-color: rgb(30, 63, 63);
+        border-radius: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        right: 74%;
+        bottom: 76%;
+    }
+    
+    .counterbox h2 {
+        font-size: 2rem;
+    }
+
+}
