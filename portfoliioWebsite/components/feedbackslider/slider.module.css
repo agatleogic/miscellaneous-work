@@ -1,0 +1,22 @@
+.fluidcontainer {
+    background: center/cover no-repeat url("/bg-img-03.png");
+    margin: 5rem 3rem;
+    box-sizing: border-box;
+}
+
+.sectiontitle {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.sectiontitle span {
+    color: #17cf97;
+}
+
+@media only screen and (max-width: 776px) {
+
+    .fluidcontainer {
+        margin: 4rem 1rem;
+    }
+}

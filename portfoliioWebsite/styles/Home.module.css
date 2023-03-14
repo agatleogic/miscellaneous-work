@@ -1,0 +1,125 @@
+.fluidcontainer {
+  display: flex;
+  background: center/cover no-repeat url("/bg-img-01.png");
+  color: #000;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  background-image: url("/businessman-working-virtual-screen_53876-104333.webp");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.main1 {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem;
+  margin: 5rem 2rem;
+  row-gap: 2rem;
+}
+
+.main1 h1 {
+  font-size: 6rem;
+}
+
+.main1 p {
+  font-size: 1.2rem;
+  width: 70%;
+}
+
+.undermain {
+  margin: 10px;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn {
+  background-color: rgba(20, 20, 150, 1);
+  padding: 1rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-image: linear-gradient(90deg, #7007f0, #05f94a, #fa0e1a, #23164e);
+  background-position: 100% 100%;
+  background-size: 300% 100%;
+}
+
+.arrow {
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+  color: black;
+  border: "1px solid white";
+  border-radius: 5px;
+}
+
+.headstyle {
+  font-size: 25px;
+}
+
+.projectitem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item1 {
+  width: 20rem;
+  border: 1px solid rgba(147, 70, 157, 1.6);
+}
+
+.item1 img {
+  margin: auto;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .fluidcontainer {
+    background: center/cover no-repeat url("/bg-img-03.png");
+  }
+
+  .container {
+    display: none
+  }
+}
+
+@media only screen and (max-width: 776px) {
+
+  .fluidcontainer {
+    background: center/cover no-repeat url("/bg-img-03.png");
+  }
+
+  .container {
+    display: none
+  }
+
+  .main1 {
+    padding: 2rem 1rem;
+    margin: 2rem 1rem;
+    row-gap: 2rem;
+  }
+
+  .main1 h1 {
+    font-size: 4rem;
+  }
+
+  .main1 p {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+}

@@ -1,0 +1,27 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbtn {
+    font-size: 2.4rem;
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
+    background: rgba(14, 2, 246, 0.5);
+    box-shadow: 0px 1px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 5rem;
+    right: 3rem;
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    cursor: pointer;
+}
+
+.topbtn:hover {
+    background: rgba(14, 2, 246, 0.8);
+}
