@@ -41,13 +41,15 @@ import nodemailer from "nodemailer"
               </div>` 
             }, "")
 
-    const transporter = nodemailer.createTransport({
-        service:"gmail",
-        auth:{
-            user:process.env.MAIL_USER, // generated ethereal user
-            pass:process.env.MAIL_PASS,
-        }
-    }) 
+    const transporter = nodeMailer.createTransport({
+          host: process.env.SMPT_HOST,
+          port: process.env.SMPT_PORT,
+          service: process.env.SMPT_SERVICE,
+          auth: {
+            user: process.env.SMPT_MAIL,
+            pass: process.env.SMPT_PASSWORD,
+          },
+        });
     const mailOptions = {
         from:"ramannagar08082000@gmail.com",
         to: "ramannagar08082000@gmail.com",
