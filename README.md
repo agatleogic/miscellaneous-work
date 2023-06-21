@@ -30,7 +30,7 @@ To run the application on your local machine, follow these steps:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/Raman-Nagar/QuotesApp-React-Graphql-mongoos.git
+   git clone https:/github.com/agatleogic/miscellaneous-work.git
    ```
 
 2. Install the dependencies for server:
