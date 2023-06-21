@@ -19,7 +19,7 @@ and backend using: graphql, apollo-server, apollo-server-core, pollo-server-expr
 ```
     NODE_ENV = development
     PORT = 4000
-    MONGO_URI = mongodb://localhost:5000/[databaseName]
+    MONGO_URI = mongodb://localhost:27017/[databaseName]
     JWT_SECRET = [####################]
 ```
 
